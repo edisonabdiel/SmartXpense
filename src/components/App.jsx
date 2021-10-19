@@ -2,18 +2,19 @@ import React from 'react';
 import useDarkMode from '../hooks/useDarkMode';
 import { Switch, ThemeProvider, CssBaseline, Grid } from '@material-ui/core';
 
-import Details from './Details/Details';
-import Navbar from './Navbar/Navbar';
+import { Navbar, Details, Main } from '../components';
 
 import '../App.css'
+import useStyles from './styles';
 
 const App = () => {
     const [theme, darkMode, toggleDarkMode] = useDarkMode();
+    const classes = useStyles();
 
 
     return (
         <ThemeProvider theme={theme}>
-            <CssBaseline>
+            <CssBaseline >
                 <>
                     <Navbar />
                     <Switch
@@ -21,9 +22,15 @@ const App = () => {
                         onChange={toggleDarkMode}
                         name="toggleDark"
                     />
-                    <Grid constainer spacing={0} justify="center" alignItems="center" style={{ height: '100vh' }}>
+                    <Grid className={classes.grid} constainer spacing={0} justify="center" alignItems="center" style={{ height: '100vh' }}>
                         <Grid item xs={12} sm={4}>
-                            <Details />
+                            <Details title="Income"/>
+                        </Grid>
+                        <Grid item xs={12} sm={4}>
+                            <Main />
+                        </Grid>
+                        <Grid item xs={12} sm={4}>
+                            <Details title="Expense" />
                         </Grid>
                     </Grid>
                 </>

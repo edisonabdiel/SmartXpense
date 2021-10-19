@@ -1,29 +1,22 @@
-import { AppBar, Switch, Toolbar, Typography, ThemeProvider } from '@material-ui/core';
-import  useDarkMode  from '../../hooks/useDarkMode';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import MoneyOffIcon from '@material-ui/icons/MoneyOff';
 
 import useStyles from './styles';
 
 const ButtonAppBar = () => {
     const classes = useStyles();
-    const [theme, darkMode, toggleDarkMode] = useDarkMode();
-      
+
     return (
-        <ThemeProvider theme={theme}>
         <div className={classes.root}>
             <AppBar position="static" color="inherit">
                 <Toolbar>
-                    <Typography variant="h6" className={classes.title}>
-                        
+                    <Typography variant="h5" className={classes.title}>
+                        <span bold style={{ color: 'red' }}>Smart</span>Xpense
                     </Typography>
-                    <Switch
-                        checked={darkMode}
-                        onChange={toggleDarkMode}
-                        name="toggleDark"
-                    />
+                    <MoneyOffIcon fontSize="large" className={classes.icon} />
                 </Toolbar>
             </AppBar>
-            </div>
-            </ThemeProvider>
+        </div>
     );
 }
 export default ButtonAppBar;
