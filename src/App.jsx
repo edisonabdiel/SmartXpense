@@ -1,10 +1,10 @@
 import React from 'react';
-import useDarkMode from '../hooks/useDarkMode';
+import useDarkMode from './hooks/useDarkMode';
 import { Switch, ThemeProvider, CssBaseline, Grid } from '@material-ui/core';
 
-import { Navbar, Details, Main } from '../components';
+import { Navbar, Details, Main } from './components';
 
-import '../App.css'
+import './App.css'
 import useStyles from './styles';
 
 const App = () => {
