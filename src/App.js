@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import useDarkMode from './hooks/useDarkMode';
 import { motion } from 'framer-motion/dist/framer-motion';
 import { Switch, ThemeProvider, CssBaseline, Grid } from '@material-ui/core';
 import { PushToTalkButton, PushToTalkButtonContainer } from '@speechly/react-ui';
+import { SpeechState, useSpeechContext } from '@speechly/react-client';
 
 import { Navbar, Details, Main } from './components';
 
@@ -14,6 +15,16 @@ import { fadeInSlide } from './variants/variants'
 const App = () => {
     const [theme, darkMode, toggleDarkMode] = useDarkMode();
     const classes = useStyles();
+    const { speechState } = useSpeechContext();
+    const mainRef = useRef(null);
+
+    const executeScroll = () => mainRef.current.scrollIntoView({ behavior: 'smooth' });
+
+    useEffect(() => {
+        if (speechState === SpeechState.Recording) {
+            executeScroll();
+        }
+    }, [speechState]);
 
 
     return (
@@ -30,7 +41,7 @@ const App = () => {
                         <Grid item xs={12} sm={4} className={classes.mobile}>
                             <Details title="Income" />
                         </Grid>
-                        <Grid item xs={12} sm={3} claseeName={classes.main}>
+                        <Grid ref={mainRef} item xs={12} sm={3} claseeName={classes.main}>
                             <Main />
                         </Grid>
                         <Grid item xs={12} sm={4} className={classes.desktop}>
