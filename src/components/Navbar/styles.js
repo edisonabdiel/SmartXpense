@@ -9,7 +9,10 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
       flexGrow: 1,
-    },
+  },
+  icon: {
+   fontSize: '2.7rem',
+    }
 }));
   
 export default useStyles;

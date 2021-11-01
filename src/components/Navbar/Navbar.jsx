@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
-import MoneyOffIcon from '@material-ui/icons/MoneyOff';
+import {FcMoneyTransfer} from 'react-icons/fc';
 
 import useStyles from './styles';
 
@@ -13,7 +13,7 @@ const ButtonAppBar = () => {
                     <Typography variant="h5" className={classes.title}>
                         <span bold style={{ color: 'red' }}>Smart</span>Xpense
                     </Typography>
-                    <MoneyOffIcon fontSize="large" className={classes.icon} />
+                    <FcMoneyTransfer className={classes.icon} />
                 </Toolbar>
             </AppBar>
         </div>
