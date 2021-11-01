@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { createTheme } from '@material-ui/core';
 
 export default function useDarkMode() {
